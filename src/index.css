@@ -1,3 +1,5 @@
+@import './header.css';
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +12,137 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.heading.medium{
+  font-size: 40px;
+  font-weight: 300;
+  padding:0;
+}
+.heading.medium span{
+  font-weight: 500;
+}
+
+/* }
+css for header subject */
+.header-subject{
+  display:grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  grid-gap: 16px;
+}
+.container {
+  width:1200px;
+  max-width:92%;
+  margin: 0 auto auto auto;
+}
+.card{
+  box-sizing: border-box;
+  width:100%;
+  height:64px;
+  border-radius: 12px;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 12px;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+}
+/* css for body medium italic text */
+.body.mobile{
+  font-size:14px;
+  font-style: italic;
+}
+.body.mobile.light{
+  color:#626C7F;
+}
+.body.mobile.dark{
+  color:#ABC1E1;
+}
+/* css for the svgs */
+.svg-box{
+  height:40px;
+  width:40px;
+  border-radius:6px;
+  color:#626C7F;
+}
+.svg-box.HTML{
+  background-color: #FFF1E9;
+}
+.svg-box.CSS{
+  background-color: #E0FDEF;
+}
+.svg-box.JavaScript{
+  background-color: #EBF0FF;
+}
+.svg-box.Accessibility{
+  background-color: #F6E7FF;
+}
+.option-button.card{
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  grid-column-gap: 0.75em;
+  border: 3px solid transparent;
+  justify-content: center;
+  padding: 0;
+}
+.option-button.card.light{
+  background-color: #FFFFFF;
+  color:#313E51;
+}
+.option-button.card.dark{
+  background-color: #3B4D66;
+  color:#FFFFFF;
+}
+.option-button .option-text{
+  justify-self: start;
+  grid-column: 2 / span 1;
+}
+/* dynamic css for selected options */
+.option-button.selected {
+  /* button */
+  border: 3px solid #A729F5;
+}
+
+.option-button.selected .svg-box {
+ /* box */
+ background-color: #A729F5;
+ color:white;
+}
+/* dynamic css for correct answers */
+.option-button.selected.correct{
+  /* button */
+  border: 3px solid #26D782
+}
+.option-button.selected.correct .svg-box{
+  /* button */
+  background-color: #26D782;
+}
+.option-button img{
+  display:none;
+}
+.option-button.selected.correct img{
+  display: block;
+  justify-self: end;
+  height:24px;
+  width: 24px;
+  margin-right:12px;
+}
+
+/* dynamic css for incorrect answers */
+.option-button.selected.inCorrect{
+  /* button */
+  border: 3px solid #EE5454
+}
+.option-button.selected.inCorrect .svg-box{
+  /* button */
+  background-color: #EE5454;
+}
+.option-button.selected.inCorrect img{
+  display: block;
+  justify-self: end;
+  height:24px;
+  margin-right:12px;
 }

@@ -1,0 +1,21 @@
+
+.subject.card p{
+    color: #313E51;
+    margin-left: 0.75em;
+    
+}
+a{
+    text-decoration: none;
+}
+.svg-box.HTML{
+    background-color: #FFF1E9;
+}
+.svg-box.CSS{
+    background-color: #E0FDEF;
+}
+.svg-box.JavaScript{
+    background-color: #EBF0FF;
+}
+.svg-box.Accessibility{
+    background-color: #F6E7FF;
+}
