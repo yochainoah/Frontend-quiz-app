@@ -3,16 +3,16 @@
     flex-direction:column;
     gap:12px;
     margin:0;
+    
 }
 .abc{
     background-color: #F4F6FA;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 0.75em;
     margin-left: 0.75em;
 }
-h1{
+.question.container h1{
     margin:0;
     font-size: 20px;
     font-weight: 500;
@@ -68,4 +68,39 @@ progress::-webkit-progress-value{
 }
 .option-text{
     text-align: left;
+}
+.error-message{
+    display: grid;
+    grid-template-columns:auto 1fr;
+    align-items: center;
+    gap:8px;
+    margin:auto;
+}
+.error-message img{
+    width:32px;
+    height:32px;
+}
+@media only screen and (min-width:768px){
+    .question.container h1{
+        margin:0;
+        font-size: 36px;
+        font-weight: 500;
+        margin-bottom:1.25em;
+    }
+    .abc{
+        margin-left: 12px;
+    }
+    .card.button{
+        font-size: 28px;
+    }
+    .options-container{
+        gap:24px;
+    }
+    .error-message img{
+        width:40px;
+        height:40px;
+    }
+    .error-message p{
+        font-size:28px;
+    }
 }

@@ -13,29 +13,42 @@ import { useEffect } from 'react';
 
 function App() {
 
-    let location = useLocation()
-
-    useEffect(()=>{
+    function getHeaderSVG() {
         setHeader((prevState)=>{
+            if (location.pathname.startsWith('/score')) {
+                const indexOfSubject = location.pathname.lastIndexOf('/')+1;
+                const subject = location.pathname.slice(indexOfSubject);
+                prevState.headerSubject = subject;
+                prevState.headerSvg = `/assets/images/icon-${subject.toLowerCase()}.svg`;
+                return {...prevState}
+            } 
             switch(location.pathname) {
                 case '/javascript':
                     break
                 case '/html':
+                    prevState.headerSubject = 'HTML';
+                    prevState.headerSvg = '/assets/images/icon-html.svg';
                     break
                 case '/css':
                     break
                 case '/accessibility':
+                    prevState.headerSubject = 'Accessibility';
+                    prevState.headerSvg = '/assets/images/accessibility-icon.svg';
                     break;
                 case '/':
-                        prevState.headerSubject = '';
-                        prevState.headerSvg = '';
+
                     break
                 default:
                     break;
             }
             return {...prevState};
         })
-    },[location])
+    }
+
+    let location = useLocation()
+
+    useEffect(getHeaderSVG,[location])
+    useEffect(getHeaderSVG, [])
 
     const [header,setHeader] = useState({
         headerSubject:'',
@@ -63,7 +76,7 @@ function App() {
                     <Route path="/css" element={<Quiz subject={subjects[1]} subjectIndex={1}/>}/>
                     <Route path="/javascript" element={<Quiz subject={subjects[2]} subjectIndex={2}/>}/>
                     <Route path="/accessibility" element={<Quiz subject={subjects[3]} subjectIndex={3}/>}/>
-                    <Route path="/score/:correct/:total" element={<ScorePage />}/>
+                    <Route path="/score/:correct/:total/:subject" element={<ScorePage />}/>
                 </Routes>}
             </main>
             </AppContext.Provider>

@@ -10,9 +10,9 @@ function Quiz({subjectIndex}){
     const questions = data.quizzes[subjectIndex].questions;
     const [correct,setCorrect] = useState(false);
     const [inCorrect, setInCorrect] = useState(false);
-    const [answerSelected,setAnswerSelected] = useState(true);
     const [selected,setSelected] = useState('');
     const [questionAnswered,setQuestionAnswered] = useState(false);
+    const [showError, setShowError] = useState(false);
     const [questionsState,setQuestionsState] = useState({
         currentQuestion:0,
         optionSelected:'',
@@ -21,15 +21,18 @@ function Quiz({subjectIndex}){
         answers: []
       })
       
-    console.log('current question',questionsState.currentQuestion)
+    // console.log('current question',questionsState.currentQuestion)
+    // console.log('correct/incorrect:', correct, inCorrect)
     const question = questions[questionsState.currentQuestion]
     
     
     const answer = question.answer;
     function handleSubmit(){
-        if(answerSelected){
-            setQuestionAnswered(true);
+        if (selected === '') {
+            setShowError(true);
+            return;
         }
+        setQuestionAnswered(true);
         const answer = question.answer;
         if(answer === questionsState.optionSelected){
             questionsState.score++;
@@ -37,18 +40,17 @@ function Quiz({subjectIndex}){
         }
         else if(answer !== questionsState.optionSelected){
             setInCorrect(true);
-            
+            setCorrect(true);
         }
-        if(questionsState.currentQuestion === questions.length-1){
-            navigate(`/score/${questionsState.score}/${questions.length}`);
-        }
+        // if(questionsState.currentQuestion === questions.length-1){
+        //     navigate(`/score/${questionsState.score}/${questions.length}/${data.quizzes[subjectIndex].title}`);
+        // }
 
     }
     function handleChoice(choice,index){
         setCorrect(false);
         setInCorrect(false);
         setSelected(index);
-        setAnswerSelected(true);
         setQuestionsState((prevState)=>{
             prevState.answers[prevState.currentQuestion] = choice;
             prevState.optionSelected = choice;
@@ -56,20 +58,24 @@ function Quiz({subjectIndex}){
         })
     }
 
-    console.log(questions);
+    // console.log(questions);
 
     function handlePassQuestion(){
         setQuestionAnswered(false);
         setCorrect(false);
         setInCorrect(false);
         setSelected('');
+        setShowError(false);
+        if(questionsState.currentQuestion === questions.length-1){
+            navigate(`/score/${questionsState.score}/${questions.length}/${data.quizzes[subjectIndex].title}`);
+        }
         setQuestionsState((prevState)=>{
             return {
                 ...prevState,
                 currentQuestion: prevState.currentQuestion + 1
             };
         })
-        console.log('questionState',questionsState);
+        // console.log('questionState',questionsState);
     }
 
     return (
@@ -80,15 +86,21 @@ function Quiz({subjectIndex}){
             <div className='options-container'>
                 <ul className='options-container'>
                     {question.options.map((option,index)=>{
+                        const isCorrectAnswer = answer === option
+                        const showGreenBorder = correct && selected===index
+                        const showCheckmark = (correct && isCorrectAnswer) || (inCorrect && isCorrectAnswer)
+                        // console.log("isCorrectAnswer", option, answer, isCorrectAnswer)
+                        // console.log("showCheckmark", showCheckmark)
+                        const showX = inCorrect && selected===index
                         return (
                             <li key={option} >
-                                <button onClick={()=>handleChoice(option, index)} className={`option-button card ${themeColor} text ${selected===index?'selected':''} ${correct && selected===index? 'correct':''} ${inCorrect && selected===index? 'inCorrect': ''}`}>
+                                <button onClick={()=>handleChoice(option, index)} className={`option-button card ${themeColor} text ${selected===index?'selected':''} ${showGreenBorder ? 'correct':''} ${inCorrect && selected===index? 'inCorrect': ''}`}>
                                     <span className='svg-box abc'>{String.fromCharCode(65 + (index))}</span>
                                     <span className='option-text'>{option}</span>
                                     {/* use grid for the correct or wrong svg */}
-                                    {inCorrect && <img src='/assets/images/icon-incorrect.svg' alt='incorrect mark svg'/>}
-                                    {correct &&  <img src='/assets/images/icon-correct.svg' alt='checkmark svg' />}
-                                    {(inCorrect && answer === option) && <img src='/assets/images/icon-correct.svg' alt='checkmark svg' />}
+                                    {showX && <img src='/assets/images/icon-incorrect.svg' alt='incorrect mark svg'/>}
+                                    {showCheckmark &&  <img src='/assets/images/icon-correct.svg' alt='checkmark svg' />}
+                                    
                                 </button>
                             </li>
                         )
@@ -96,7 +108,12 @@ function Quiz({subjectIndex}){
                 </ul>
                 {!questionAnswered && <button onClick ={handleSubmit} className='button card'>Submit Answer</button>}
                 {questionAnswered && <button onClick={handlePassQuestion} className='button card'>Next Question</button>}
-                {!answerSelected && <p>Please</p>}
+                {showError && (
+                    <div className='error-message'>
+                        <img src='/assets/images/icon-incorrect.svg' alt='incorrect mark svg'/>
+                        <p>Please select an answer</p>
+                    </div>
+                )}
             </div>
 
         </div>

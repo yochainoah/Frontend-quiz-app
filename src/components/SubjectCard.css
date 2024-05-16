@@ -19,3 +19,8 @@ a{
 .svg-box.Accessibility{
     background-color: #F6E7FF;
 }
+@media only screen and (min-width:768px){
+    .subject.card p{
+        font-size: 28px;
+    }
+}
