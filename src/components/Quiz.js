@@ -98,8 +98,8 @@ function Quiz({subjectIndex}){
                                     <span className='svg-box abc'>{String.fromCharCode(65 + (index))}</span>
                                     <span className='option-text'>{option}</span>
                                     {/* use grid for the correct or wrong svg */}
-                                    {showX && <img src='/assets/images/icon-incorrect.svg' alt='incorrect mark svg'/>}
-                                    {showCheckmark &&  <img src='/assets/images/icon-correct.svg' alt='checkmark svg' />}
+                                    {showX && <img src='./assets/images/icon-incorrect.svg' alt='incorrect mark svg'/>}
+                                    {showCheckmark &&  <img src='./assets/images/icon-correct.svg' alt='checkmark svg' />}
                                     
                                 </button>
                             </li>
@@ -110,7 +110,7 @@ function Quiz({subjectIndex}){
                 {questionAnswered && <button onClick={handlePassQuestion} className='button card'>Next Question</button>}
                 {showError && (
                     <div className='error-message'>
-                        <img src='/assets/images/icon-incorrect.svg' alt='incorrect mark svg'/>
+                        <img src='./assets/images/icon-incorrect.svg' alt='incorrect mark svg'/>
                         <p>Please select an answer</p>
                     </div>
                 )}

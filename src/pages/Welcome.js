@@ -12,7 +12,7 @@ function Welcome({theme}){
                 <p className={`body mobile ${theme}`}>Pick a subject to get started.</p>
             </main>
             <ul className='subjects-container'>
-                {SUBJECTS.map((subject,index)=><li key={index}><Subject subject={subject.title} path={`${subject.icon.slice(1)}`}/></li>)}
+                {SUBJECTS.map((subject,index)=><li key={index}><Subject subject={subject.title} path={`${subject.icon}`}/></li>)}
             </ul>
         </section>
     ) 
