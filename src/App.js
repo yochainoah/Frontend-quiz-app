@@ -19,7 +19,7 @@ function App() {
                 const indexOfSubject = location.pathname.lastIndexOf('/')+1;
                 const subject = location.pathname.slice(indexOfSubject);
                 prevState.headerSubject = subject;
-                prevState.headerSvg = `/assets/images/icon-${subject.toLowerCase()}.svg`;
+                prevState.headerSvg = `./assets/images/icon-${subject.toLowerCase()}.svg`;
                 return {...prevState}
             } 
             switch(location.pathname) {
@@ -27,13 +27,13 @@ function App() {
                     break
                 case '/html':
                     prevState.headerSubject = 'HTML';
-                    prevState.headerSvg = '/assets/images/icon-html.svg';
+                    prevState.headerSvg = './assets/images/icon-html.svg';
                     break
                 case '/css':
                     break
                 case '/accessibility':
                     prevState.headerSubject = 'Accessibility';
-                    prevState.headerSvg = '/assets/images/accessibility-icon.svg';
+                    prevState.headerSvg = './assets/images/accessibility-icon.svg';
                     break;
                 case '/':
 
