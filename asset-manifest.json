@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Frontend-quiz-app/static/css/main.edfb872c.css",
+    "main.css": "/Frontend-quiz-app/static/css/main.62e61339.css",
     "main.js": "/Frontend-quiz-app/static/js/main.1ec2e4c5.js",
     "static/js/453.4090cb45.chunk.js": "/Frontend-quiz-app/static/js/453.4090cb45.chunk.js",
     "index.html": "/Frontend-quiz-app/index.html",
@@ -10,12 +10,12 @@
     "static/media/pattern-background-mobile-light.svg": "/Frontend-quiz-app/static/media/pattern-background-mobile-light.2a1f70bd700b2be97b86.svg",
     "static/media/pattern-background-tablet-dark.svg": "/Frontend-quiz-app/static/media/pattern-background-tablet-dark.462d8b613fbdc840835d.svg",
     "static/media/pattern-background-tablet-light.svg": "/Frontend-quiz-app/static/media/pattern-background-tablet-light.72e6cda6148dc11584fb.svg",
-    "main.edfb872c.css.map": "/Frontend-quiz-app/static/css/main.edfb872c.css.map",
+    "main.62e61339.css.map": "/Frontend-quiz-app/static/css/main.62e61339.css.map",
     "main.1ec2e4c5.js.map": "/Frontend-quiz-app/static/js/main.1ec2e4c5.js.map",
     "453.4090cb45.chunk.js.map": "/Frontend-quiz-app/static/js/453.4090cb45.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.edfb872c.css",
+    "static/css/main.62e61339.css",
     "static/js/main.1ec2e4c5.js"
   ]
 }
