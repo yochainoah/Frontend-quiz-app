@@ -14,7 +14,7 @@ function Subject({subject,path}){
     }
     return (
         <Link to={`/${subject.toLowerCase()}`}>
-            <button  onClick = {handleSubjectChoice} className="subject card">
+            <button  onClick = {handleSubjectChoice} className={`subject card ${appCtx.themeColor}`}>
                 <img src={path} alt=" current subject" className={`svg-box ${subject}`}/>
                 <p>{subject}</p>
             </button>

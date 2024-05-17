@@ -8,7 +8,7 @@ function Welcome({theme}){
     return (
         <section className='content container'>
             <main className="welcome-heading">
-                <h1 className={`heading medium ${theme}`}>Welcome to the <span>Frontend quiz!</span></h1>
+                <h1 className={`heading medium ${theme}`}>Welcome to the <br/><span>Frontend quiz!</span></h1>
                 <p className={`body mobile ${theme}`}>Pick a subject to get started.</p>
             </main>
             <ul className='subjects-container'>

@@ -35,4 +35,40 @@ ul{
   list-style: none;
   padding:0;
 }
-
+@media only screen and (min-width:768px){
+  .header-container{
+    margin-bottom: 49px;
+  }
+  .root.light{
+    background-image: url('../public/assets/images/pattern-background-tablet-light.svg');
+    background-size: initial;
+    background-repeat: no-repeat;
+  }
+  .root.dark{
+    background-image: url('../public/assets/images/pattern-background-tablet-dark.svg');
+    background-size: initial;
+    background-repeat: no-repeat;
+  }
+}
+@media only screen and (min-width:1440px){
+  .content{
+    display:flex;
+    flex-direction: row;
+    gap:131px;
+    justify-content: center;
+  }
+  .root.light{
+    background-image: url('../public/assets/images/pattern-background-desktop-light.svg');
+    background-size: initial;
+    background-repeat: no-repeat;
+  }
+  .root.dark{
+    background-image: url('../public/assets/images/pattern-background-desktop-dark.svg');
+    background-size: initial;
+    background-repeat: no-repeat;
+  }
+  .header-container{
+    
+    height:224px;
+  }
+}

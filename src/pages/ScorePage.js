@@ -8,20 +8,21 @@ function Score(){
     const {correct,total} = useParams();
     console.log(header.headerSvg)
     return (
-        <div className='score container'>
+        <div className="score container">
             <h1 className={`heading medium `}>Quiz Completed<br/><span>You scored...</span></h1>
-            <div className={`score-card ${themeColor}`}>
-                <div className='header-subject'>
-                    <img className={`svg-box ${header.headerSubject}`} src={header.headerSvg} alt='subject svg'/>
-                    <p>{header.headerSubject}</p>
+            <div className="score-content">
+                <div className={`score-card ${themeColor}`}>
+                    <div className='header-subject'>
+                        <img className={`svg-box ${header.headerSubject}`} src={header.headerSvg} alt='subject svg'/>
+                        <p>{header.headerSubject}</p>
+                    </div>
+                    <p>{correct}</p>
+                    <p>{`out of ${total}`}</p>
                 </div>
-                
-                <p>{correct}</p>
-                <p>{`out of ${total}`}</p>
+                <Link to='/'>
+                    <button className='button card'>Play Again</button>
+                </Link>
             </div>
-            <Link to='/'>
-                <button className='button card'>Play Again</button>
-            </Link>
         </div>
     )
 }

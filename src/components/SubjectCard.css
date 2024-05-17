@@ -1,8 +1,14 @@
 
 .subject.card p{
-    color: #313E51;
     margin-left: 0.75em;
-    
+}
+.subject.card.light{
+    color: #313E51;
+    background-color: #FFFFFF;
+}
+.subject.card.dark{
+    color:#FFFFFF;
+    background-color: #3B4D66;
 }
 a{
     text-decoration: none;

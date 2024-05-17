@@ -30,9 +30,16 @@ progress{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #FFFFFF;
+
     margin-bottom: 40px;
-  
+    padding:4px;
+
+}
+.progress-bar.light{
+    background-color: #FFFFFF;
+}
+.progress-bar.dark{
+    background-color: #3B4D66;
 }
 progress::-moz-progress-bar {
     background-color: #A729F5; 
@@ -46,14 +53,10 @@ progress[value]::-moz-progress-bar {
 progress::-webkit-progress-bar{
     background-color: #FFFFFF;
     border-radius: 8px;
-
 }
 progress::-webkit-progress-value{
     background-color: #A729F5; 
     border-radius: 8px;
-    margin:2px;
-    width:100%;
-    height:6px;
 
 }
 .card.button{
@@ -102,5 +105,15 @@ progress::-webkit-progress-value{
     }
     .error-message p{
         font-size:28px;
+    }
+}
+@media only screen and (min-width:1440px){
+    .question.container{
+        display: flex;
+        flex: row;
+        gap:131px;
+    }
+    .question.container h1{
+        margin-bottom: 164px;
     }
 }

@@ -14,12 +14,12 @@ function ToggleSwitch(){
     }
     return (
         <div className='toggleContainer'>
-            {appCtx.themeColor === 'light' ? <img src="/assets/images/icon-sun-dark.svg" className='dark-sun' alt="icon of dark sun"/> : <img src="/assets/images/icon-sun-light.svg"  className='light-sun' alt="icon of light sun"/>}
+            {appCtx.themeColor === 'light' ? <img src="./assets/images/icon-sun-dark.svg" className='dark-sun' alt="icon of dark sun"/> : <img src="./assets/images/icon-sun-light.svg"  className='light-sun' alt="icon of light sun"/>}
             <label className="switch">
                 <input type="checkbox" onChange={handleTheme}/>
                 <span className="slider round"></span>
             </label>
-            {appCtx.themeColor === 'light' ? <img  src = "/assets/images/icon-moon-dark.svg" className='dark-moon' alt="icon of dark moon"/>: <img src="/assets/images/icon-moon-light.svg" className='light-moon' alt="icon of light moon"/>}
+            {appCtx.themeColor === 'light' ? <img  src = "./assets/images/icon-moon-dark.svg" className='dark-moon' alt="icon of dark moon"/>: <img src="./assets/images/icon-moon-light.svg" className='light-moon' alt="icon of light moon"/>}
         </div>
     )
 }

@@ -80,9 +80,11 @@ function Quiz({subjectIndex}){
 
     return (
         <div className='question container'>
-            <p className={`body mobile ${themeColor}`}>{`Question ${questionsState.currentQuestion+1} of ${questions.length}`}</p>
-            <h1>{question.question}</h1>
-            <progress value={questionsState.currentQuestion+1} max={questions.length}></progress>
+            <div className='question-container'>
+                <p className={`body mobile ${themeColor}`}>{`Question ${questionsState.currentQuestion+1} of ${questions.length}`}</p>
+                <h1>{question.question}</h1>
+                <progress className={`progress-bar ${themeColor}`}value={questionsState.currentQuestion+1} max={questions.length}></progress>
+            </div>
             <div className='options-container'>
                 <ul className='options-container'>
                     {question.options.map((option,index)=>{
@@ -100,7 +102,6 @@ function Quiz({subjectIndex}){
                                     {/* use grid for the correct or wrong svg */}
                                     {showX && <img src='./assets/images/icon-incorrect.svg' alt='incorrect mark svg'/>}
                                     {showCheckmark &&  <img src='./assets/images/icon-correct.svg' alt='checkmark svg' />}
-                                    
                                 </button>
                             </li>
                         )
