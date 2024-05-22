@@ -1,70 +1,136 @@
-# Getting Started with Create React App
+# Frontend Mentor - Frontend quiz app solution
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a solution to the [Frontend quiz app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/frontend-quiz-app-BE7xkzXQnU). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
+- [Overview](#overview)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-### `npm start`
+**Note: Delete this note and update the table of contents based on what sections you keep.**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Overview
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+### Screenshot
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![](./frontend-quiz-pic1.png)
+![](./frontend-quiz-pic2.png)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Links
 
-### `npm run eject`
+- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## My process
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Built with
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- CSS Grid
+- Mobile-first workflow
+- [React](https://reactjs.org/) - JS library
+- Vanilla css
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+### What I learned
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+I learnt how to work with progress bars in differant browsers such as firefox and chrome, I also learnt how to work with
+react router and the useLocation hook to render data depending on the url
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```css
+progress::-moz-progress-bar {
+    background-color: #A729F5; 
+    border-radius: 8px;
+    margin:4px;
+  }
+progress[value]::-moz-progress-bar {
+    width:100%;
+    height:8px;
+}
+progress::-webkit-progress-bar{
+    background-color: #FFFFFF;
+    border-radius: 8px;
+}
+progress::-webkit-progress-value{
+    background-color: #A729F5; 
+    border-radius: 8px;
 
-### Code Splitting
+}
+```
+```js
+    function getHeaderSVG() {
+        setHeader((prevState)=>{
+            if (location.pathname.startsWith('/score')) {
+                const indexOfSubject = location.pathname.lastIndexOf('/')+1;
+                const subject = location.pathname.slice(indexOfSubject);
+                prevState.headerSubject = subject;
+                prevState.headerSvg = `./assets/images/icon-${subject.toLowerCase()}.svg`;
+                return {...prevState}
+            } 
+            switch(location.pathname) {
+                case '/javascript':
+                    break
+                case '/html':
+                    prevState.headerSubject = 'HTML';
+                    prevState.headerSvg = './assets/images/icon-html.svg';
+                    break
+                case '/css':
+                    break
+                case '/accessibility':
+                    prevState.headerSubject = 'Accessibility';
+                    prevState.headerSvg = './assets/images/accessibility-icon.svg';
+                    break;
+                case '/':
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+                    break
+                default:
+                    break;
+            }
+            return {...prevState};
+        })
+    }
 
-### Analyzing the Bundle Size
+    let location = useLocation()
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    useEffect(getHeaderSVG,[location])
+    useEffect(getHeaderSVG, [])
+```
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+### Continued development
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+I would love to keep on learning how to work with react router and useEffect there still alot of usful functions that I 
+have to learn as part of the react router dom
 
-### Deployment
+### Useful resources
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- [W3schools](https://www.w3schools.com/) - This helped me with understanding css grid and media queries
+- [browser stack](https://www.browserstack.com/guide/how-to-create-cross-browser-compatible-html-progress-bar) - This is an amazing article which helped me finally understand progress bars. I'd recommend it to anyone still learning this concept.
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Author
+
+- Website - [Yochai heinrich](https://www.your-site.com)
+- Frontend Mentor - [@yochainoah](https://www.frontendmentor.io/profile/yochainoah)
+
+
+## Acknowledgments
+
+I have to say thankyou to doug my private tutor who helpd me when I got stack on various functionalities and how to execute them he was
+great and patient
